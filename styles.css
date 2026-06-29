@@ -5,9 +5,9 @@
 }
 
 body{
-    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
-    background:#F3F5F6;
-    color:#1F325D;
+    font-family:"Manrope",sans-serif;
+    background:#0F1117;
+    color:#F5F5F5;
     overflow:hidden;
 }
 
@@ -17,49 +17,94 @@ body{
     flex-direction:column;
     justify-content:center;
     align-items:center;
+    position:relative;
+    z-index:1;
 }
 
 .name{
     font-size:clamp(70px,10vw,140px);
-    font-weight:200;
-    letter-spacing:8px;
+    font-weight:700;
+    letter-spacing:-4px;
+    line-height:1;
+    background:linear-gradient(180deg,#FFFFFF 0%,#D8D8D8 100%);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    animation:fadeInName 1.6s ease forwards;
 }
 
 .tagline{
-    margin-top:20px;
-    font-size:18px;
-    color:#515151;
-    letter-spacing:4px;
-}
-.name{
-    animation: fadeInName 1.6s ease forwards;
-}
-
-.tagline,
-.hint{
+    margin-top:24px;
+    display:flex;
+    gap:18px;
+    align-items:center;
+    font-size:22px;
+    font-weight:300;
+    color:#8B92A1;
     opacity:0;
-    animation: fadeInText 1.2s ease forwards;
-    animation-delay:1.1s;
+    animation:fadeInText 1.2s ease forwards;
+    animation-delay:2s;
 }
 
-.hint{
-    margin-top:60px;
-    font-size:13px;
+.pillar{
+    cursor:pointer;
+    transition:all .35s ease;
+}
+
+.pillar:hover{
+    transform:translateY(-3px) scale(1.08);
+}
+
+.communication:hover{
+    color:#5EA3FF;
+}
+
+.marketing:hover{
+    color:#C084FC;
+}
+
+.technology:hover{
+    color:#F4C542;
+}
+
+.cross{
     color:#515151;
-    letter-spacing:3px;
-    text-transform:uppercase;
+    cursor:default;
+}
+
+.concept{
+    margin-top:18px;
+    max-width:650px;
+    text-align:center;
+    font-size:16px;
+    font-weight:300;
+    line-height:1.8;
+    color:#6B7280;
+    opacity:0;
+    animation:fadeInText 1.2s ease forwards;
+    animation-delay:3s;
+}
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:0;
+    background:
+        radial-gradient(circle at 20% 20%, rgba(255,255,255,.04), transparent 22%),
+        radial-gradient(circle at 80% 70%, rgba(255,255,255,.025), transparent 24%);
 }
 
 @keyframes fadeInName{
     from{
         opacity:0;
         transform:translateY(20px);
-        letter-spacing:18px;
+        letter-spacing:6px;
     }
     to{
         opacity:1;
         transform:translateY(0);
-        letter-spacing:8px;
+        letter-spacing:-4px;
     }
 }
 
@@ -67,26 +112,4 @@ body{
     to{
         opacity:1;
     }
-}
-.profile-zones{
-    position:absolute;
-    inset:0;
-    display:grid;
-    grid-template-columns:repeat(3, 1fr);
-    opacity:0;
-    pointer-events:none;
-    transition:opacity .8s ease;
-}
-
-.zone{
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    padding:40px;
-}
-
-.zone h2{
-    font-weight:300;
-    font-size:28px;
-    opacity:.75;
 }
